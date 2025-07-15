@@ -1,0 +1,96 @@
+.skeleton {
+  background-color: hsl(var(--muted));
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton.pulse {
+  animation: skeletonPulse 2s ease-in-out infinite;
+}
+
+.skeleton.wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: skeletonWave 2s infinite;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes skeletonWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton.text {
+  height: 1em;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton.circular {
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
+}
+
+.skeleton.rectangular {
+  border-radius: var(--radius-md);
+}
+
+/* Size variants for text */
+.skeleton.text.sm {
+  height: 0.75em;
+}
+
+.skeleton.text.lg {
+  height: 1.25em;
+}
+
+/* Size variants for circular */
+.skeleton.circular.sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.skeleton.circular.md {
+  width: 3rem;
+  height: 3rem;
+}
+
+.skeleton.circular.lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* Default rectangular sizes */
+.skeleton.rectangular.sm {
+  height: 3rem;
+}
+
+.skeleton.rectangular.md {
+  height: 6rem;
+}
+
+.skeleton.rectangular.lg {
+  height: 12rem;
+} 

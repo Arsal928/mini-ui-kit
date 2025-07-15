@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.container:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.checkbox {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 2px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  background-color: hsl(var(--background));
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkbox:hover {
+  border-color: hsl(var(--primary));
+}
+
+.container:has(input:focus-visible) .checkbox {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+.container:has(input:checked) .checkbox {
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.container:has(input:indeterminate) .checkbox {
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.checkIcon {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.15s ease;
+}
+
+.container:has(input:checked) .checkIcon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.indeterminateIcon {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.15s ease;
+}
+
+.container:has(input:indeterminate) .indeterminateIcon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: hsl(var(--foreground));
+  line-height: 1.4;
+}
+
+.container:has(input:disabled) .label {
+  color: hsl(var(--muted-foreground));
+} 
